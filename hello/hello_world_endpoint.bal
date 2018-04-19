@@ -59,7 +59,7 @@ public function HelloWorldConnector::sayHello()  {
 
 function main(string[] args) {
     endpoint Client helloWorldClient {
-        name: "Dimuthu",
+        name: "Gatsby",
         clientConfig:{
             targets: [{url:"http://example.com"}]
         }
