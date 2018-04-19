@@ -2,7 +2,7 @@ import ballerina/io;
 import ballerina/http;
 
 // Endpoint Contract
-public type Client object {
+public type HelloWorldClient object {
 
     public {
         HelloWorldConnector helloWorldConnector = new;
@@ -33,12 +33,12 @@ public type HelloWorldConfig {
 
 // =========== Implementation of the Endpoint
 
-public function Client::init (HelloWorldConfig helloWorldConfig) {
+public function HelloWorldClient::init (HelloWorldConfig helloWorldConfig) {
     self.helloWorldConnector.name = helloWorldConfig.name;
     self.helloWorldConnector.basicClient.init(helloWorldConfig.clientConfig);
 }
 
-public function Client::getClient () returns HelloWorldConnector {
+public function HelloWorldClient::getClient () returns HelloWorldConnector {
     return self.helloWorldConnector;
 }
 
@@ -58,7 +58,7 @@ public function HelloWorldConnector::sayHello()  {
 
 
 function main(string[] args) {
-    endpoint Client helloWorldClient {
+    endpoint HelloWorldClient helloWorldClient {
         name: "Gatsby",
         clientConfig:{
             targets: [{url:"http://example.com"}]
